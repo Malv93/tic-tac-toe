@@ -1,15 +1,69 @@
+/* Imported Fonts */
+
+@import url("https://fonts.googleapis.com/css2?family=Indie+Flower&family=Open+Sans&display=swap");
+
+/* Color Palette: https://colorhunt.co/palette/2763 */
+
+:root {
+  --first-color: #222831;
+  --second-color: #eee;
+  --third-color: #00adb5;
+  --fourth-color: #393e46;
+}
+
+/* Layout */
+
 body {
-  font: 14px "Century Gothic", Futura, sans-serif;
-  margin: 20px;
+  font-family: "Open Sans", sans-serif;
+  margin: 0;
+  background-color: var(--first-color);
+  color: var(--second-color);
 }
 
+/* header, game and footer are
+    displayed as flex elements
+    in a column. */
 .App {
+  display: flex;
+  flex-direction: column;
+  align-content: center;
   text-align: center;
+  min-height: 100vh;
 }
 
-ol,
-ul {
-  padding-left: 30px;
+.header {
+  box-sizing: border-box;
+  min-height: 50px;
+  font: 600 1.6rem/1 "Indie Flower", cursive;
+}
+
+/* Header and Footer are pushed 
+    to the top and bottom of the viewport.
+    Game stretches to occupy the rest of 
+    the available space.
+    */
+.game {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+  padding: 20px 0;
+}
+
+.footer {
+  box-sizing: border-box;
+  min-height: 40px;
+  padding: 20px 0;
+  color: var(--fourth-color);
+}
+
+ol {
+  padding-left: 0;
+}
+
+.history-button {
+  margin-top: 0.5rem;
 }
 
 .board-row:after {
@@ -43,14 +97,4 @@ ul {
 
 .kbd-navigation .square:focus {
   background: #ddd;
-}
-
-.game {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-}
-
-.game-info {
-  margin-left: 20px;
 }

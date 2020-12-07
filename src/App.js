@@ -1,14 +1,14 @@
 import Game from "./components/game";
 import "./App.css";
+import Header from "./layout/header";
+import Footer from "./layout/footer";
 
 function App() {
   return (
     <div className="App">
-      <header></header>
-      <body>
-        <Game />
-      </body>
-      <footer></footer>
+      <Header />
+      <Game />
+      <Footer />
     </div>
   );
 }
