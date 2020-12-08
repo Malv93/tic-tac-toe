@@ -47,7 +47,7 @@ body {
   align-items: flex-start;
 }
 
-.game > div {
+main > div {
   margin: 20px auto 0;
 }
 
@@ -58,9 +58,19 @@ body {
 
 @media (min-width: 600px) {
   .game {
-    grid-template-columns: 3fr 2fr;
+    grid-template-columns: 1fr auto;
     grid-template-rows: 1fr;
-    /* align-items: baseline; */
+  }
+  .game-info {
+    margin-left: 40px;
+    margin-right: 40px;
+  }
+}
+
+@media (min-width: 900px) {
+  .game {
+    width: 900px;
+    margin: 0 auto;
   }
 }
 
