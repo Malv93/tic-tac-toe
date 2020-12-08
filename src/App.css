@@ -2,9 +2,8 @@
 
 @import url("https://fonts.googleapis.com/css2?family=Indie+Flower&family=Open+Sans&display=swap");
 
-/* Color Palette: https://colorhunt.co/palette/2763 */
-
 :root {
+  /* Color Palette: https://colorhunt.co/palette/2763 */
   --first-color: #222831;
   --second-color: #eee;
   --third-color: #00adb5;
@@ -17,16 +16,16 @@ body {
   font-family: "Open Sans", sans-serif;
   margin: 0;
   background-color: var(--first-color);
-  color: var(--second-color);
+  color: var(--third-color);
 }
 
 /* header, game and footer are
     displayed as flex elements
-    in a column. */
+    in the App column. */
 .App {
-  display: flex;
-  flex-direction: column;
-  align-content: center;
+  display: grid;
+  grid-template-rows: auto 1fr auto;
+  justify-content: center;
   text-align: center;
   min-height: 100vh;
 }
@@ -43,12 +42,10 @@ body {
     the available space.
     */
 .game {
-  flex: 1;
+  padding: 20px 0;
   display: flex;
   flex-direction: column;
-  justify-content: flex-start;
   align-items: center;
-  padding: 20px 0;
 }
 
 .footer {
@@ -58,7 +55,8 @@ body {
   color: var(--fourth-color);
 }
 
-ol {
+/* history list */
+.history-list {
   padding-left: 0;
 }
 

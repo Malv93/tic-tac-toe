@@ -73,7 +73,7 @@ function Game(props) {
         <div>
           <h2>{status}</h2>
         </div>
-        <ol>{moves}</ol>
+        <ol className="history-list">{moves}</ol>
       </div>
     </main>
   );
