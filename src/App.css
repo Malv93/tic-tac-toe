@@ -41,8 +41,28 @@ body {
     the available space.
     */
 .game {
-  padding: 20px 0;
   flex: 1;
+  width: 100%;
+  display: grid;
+  grid-template-rows: auto 1fr;
+  align-items: flex-start;
+}
+
+.game > div {
+  margin: 20px auto 0;
+}
+
+.game-status {
+  margin-top: 0;
+  line-height: 1;
+}
+
+@media (min-width: 600px) {
+  .game {
+    grid-template-columns: 3fr 2fr;
+    grid-template-rows: 1fr;
+    /* align-items: baseline; */
+  }
 }
 
 .footer {
