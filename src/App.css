@@ -20,12 +20,11 @@ body {
 }
 
 /* header, game and footer are
-    displayed as flex elements
-    in the App column. */
+    displayed in the App grid. */
 .App {
-  display: grid;
-  grid-template-rows: auto 1fr auto;
-  justify-content: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
   text-align: center;
   min-height: 100vh;
 }
@@ -43,9 +42,7 @@ body {
     */
 .game {
   padding: 20px 0;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
+  flex: 1;
 }
 
 .footer {
