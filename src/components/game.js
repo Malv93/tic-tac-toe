@@ -67,7 +67,6 @@ function Game(props) {
   return (
     <main className="game">
       <Board squares={current.squares} onClick={(i) => handleClick(i)} />
-
       <div className="game-info">
         <div>
           <h2 className="game-status">{status}</h2>

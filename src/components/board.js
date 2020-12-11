@@ -2,28 +2,22 @@ import Square from "./square";
 
 function Board(props) {
   function renderSquare(i) {
-    return <Square value={props.squares[i]} onClick={() => props.onClick(i)} />;
+    return (
+      <Square
+        key={i}
+        value={props.squares[i]}
+        onClick={() => props.onClick(i)}
+      />
+    );
   }
 
-  return (
-    <div className="game-board">
-      <div className="board-row">
-        {renderSquare(0)}
-        {renderSquare(1)}
-        {renderSquare(2)}
-      </div>
-      <div className="board-row">
-        {renderSquare(3)}
-        {renderSquare(4)}
-        {renderSquare(5)}
-      </div>
-      <div className="board-row">
-        {renderSquare(6)}
-        {renderSquare(7)}
-        {renderSquare(8)}
-      </div>
-    </div>
-  );
+  // Create an array of squares
+  var squares = [];
+  for (let i = 0; i < 9; i++) {
+    squares.push(renderSquare(i));
+  }
+
+  return <div className="game-board">{squares}</div>;
 }
 
 export default Board;
