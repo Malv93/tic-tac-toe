@@ -47,23 +47,18 @@ body {
   align-items: flex-start;
 }
 
-main > div {
+.game-board,
+.game-info {
   margin: 20px auto 0;
-}
-
-.game-status {
-  margin-top: 0;
-  line-height: 1;
 }
 
 @media (min-width: 600px) {
   .game {
-    grid-template-columns: 1fr auto;
     grid-template-rows: 1fr;
+    grid-template-columns: 1fr auto;
   }
   .game-info {
-    margin-left: 40px;
-    margin-right: 40px;
+    margin: 20px 40px 0;
   }
 }
 
@@ -72,6 +67,11 @@ main > div {
     width: 900px;
     margin: 0 auto;
   }
+}
+
+.game-status {
+  margin-top: 0;
+  line-height: 1;
 }
 
 .footer {
