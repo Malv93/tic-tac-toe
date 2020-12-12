@@ -49,22 +49,23 @@ body {
 
 .game-board {
   display: grid;
-  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-columns: repeat(3, 1fr);
+  width: 30vw;
+  min-width: 120px;
+  grid-auto-rows: minmax(40px, 10vw);
+  gap: 3px;
 }
 
 .square {
+  box-sizing: border-box;
   background: #fff;
   border: 1px solid #999;
-  float: left;
   font-size: 24px;
   font-weight: bold;
   line-height: 34px;
-  height: 34px;
-  margin-right: -1px;
-  margin-top: -1px;
-  padding: 0;
+  width: 100%;
+  height: 100%;
   text-align: center;
-  width: 34px;
 }
 
 .square:focus {
@@ -82,11 +83,13 @@ body {
 
 @media (min-width: 600px) {
   .game {
-    grid-template-rows: 1fr;
+    grid-template-rows: none;
     grid-template-columns: 1fr auto;
   }
+  /* Avoid auto width size due to
+    dynamic content */
   .game-info {
-    margin: 20px 40px 0;
+    width: 300px;
   }
 }
 
