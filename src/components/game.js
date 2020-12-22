@@ -1,6 +1,6 @@
 import { useState } from "react";
 import Board from "./board";
-import { CSSTransition } from "react-transition-group";
+import { CSSTransition, TransitionGroup } from "react-transition-group";
 import calculateWinner from "../utilities/calculateWinner";
 
 function Game(props) {
@@ -13,10 +13,12 @@ function Game(props) {
     stepNumber: 0,
     xIsNext: true,
   });
+  //Board transition
   const [showBoard, setShowBoard] = useState(true);
-
+  //Times of transitions
   const transitionTime = {
-    board: 300,
+    board: 200,
+    historyButton: 300,
   };
 
   function handleClick(i) {
@@ -58,23 +60,29 @@ function Game(props) {
   const moves = history.map((step, move) => {
     const desc = move ? "Go to move #" + move : "Go to game start";
     return (
-      <li key={move} className="history-button">
-        <button
-          onClick={() => {
-            //exit transition
-            setShowBoard(false);
-            // Wait for the exit transition to complete
-            setTimeout(() => {
-              //change board #move
-              jumpTo(move);
-              //enter transition
-              setShowBoard(true);
-            }, transitionTime.board);
-          }}
-        >
-          {desc}
-        </button>
-      </li>
+      <CSSTransition
+        key={move}
+        timeout={transitionTime.historyButton}
+        classNames="history-button"
+      >
+        <li key={move} className="history-button">
+          <button
+            onClick={() => {
+              //exit transition
+              setShowBoard(false);
+              // Wait for the exit transition to complete
+              setTimeout(() => {
+                //change board #move
+                jumpTo(move);
+                //enter transition
+                setShowBoard(true);
+              }, transitionTime.board);
+            }}
+          >
+            {desc}
+          </button>
+        </li>
+      </CSSTransition>
     );
   });
 
@@ -91,7 +99,9 @@ function Game(props) {
         <div>
           <h2 className="game-status">{status}</h2>
         </div>
-        <ol className="history-list">{moves}</ol>
+        <ol className="history-list">
+          <TransitionGroup>{moves}</TransitionGroup>
+        </ol>
       </div>
     </main>
   );
