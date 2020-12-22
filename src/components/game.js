@@ -1,5 +1,6 @@
 import { useState } from "react";
 import Board from "./board";
+import { CSSTransition } from "react-transition-group";
 import calculateWinner from "../utilities/calculateWinner";
 
 function Game(props) {
@@ -12,6 +13,11 @@ function Game(props) {
     stepNumber: 0,
     xIsNext: true,
   });
+  const [showBoard, setShowBoard] = useState(true);
+
+  const transitionTime = {
+    board: 300,
+  };
 
   function handleClick(i) {
     const history = gameStatus.history.slice(0, gameStatus.stepNumber + 1);
@@ -55,7 +61,15 @@ function Game(props) {
       <li key={move} className="history-button">
         <button
           onClick={() => {
-            jumpTo(move);
+            setShowBoard(false);
+            // Waiting for the exit animation
+            //to be completed
+            //Better to use async await
+            //or to create an animation out-in
+            setTimeout(() => {
+              jumpTo(move);
+              setShowBoard(true);
+            }, transitionTime.board);
           }}
         >
           {desc}
@@ -66,7 +80,13 @@ function Game(props) {
 
   return (
     <main className="game">
-      <Board squares={current.squares} onClick={(i) => handleClick(i)} />
+      <CSSTransition
+        in={showBoard}
+        timeout={transitionTime.board}
+        classNames="board"
+      >
+        <Board squares={current.squares} onClick={(i) => handleClick(i)} />
+      </CSSTransition>
       <div className="game-info">
         <div>
           <h2 className="game-status">{status}</h2>

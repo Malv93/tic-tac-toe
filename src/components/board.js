@@ -17,7 +17,7 @@ function Board(props) {
     squares.push(renderSquare(i));
   }
 
-  return <div className="game-board">{squares}</div>;
+  return <div className="board">{squares}</div>;
 }
 
 export default Board;
