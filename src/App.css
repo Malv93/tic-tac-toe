@@ -144,7 +144,7 @@ body {
 
 /* Transition times */
 :root {
-  --b-time: 300ms; /*board time*/
+  --board-time: 300ms; /*board time*/
 }
 
 /* Board Transition */
@@ -155,7 +155,7 @@ body {
 .board-enter-active {
   opacity: 1;
   transform: translateX(0);
-  transition: opacity var(--b-time), transform var(--b-time);
+  transition: opacity var(--board-time), transform var(--board-time);
 }
 .board-exit {
   opacity: 1;
@@ -164,5 +164,5 @@ body {
 .board-exit-active {
   opacity: 0;
   transform: scale(0.9);
-  transition: opacity var(--b-time), transform var(--b-time);
+  transition: opacity var(--board-time), transform var(--board-time);
 }

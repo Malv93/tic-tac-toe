@@ -61,13 +61,13 @@ function Game(props) {
       <li key={move} className="history-button">
         <button
           onClick={() => {
+            //exit transition
             setShowBoard(false);
-            // Waiting for the exit animation
-            //to be completed
-            //Better to use async await
-            //or to create an animation out-in
+            // Wait for the exit transition to complete
             setTimeout(() => {
+              //change board #move
               jumpTo(move);
+              //enter transition
               setShowBoard(true);
             }, transitionTime.board);
           }}
