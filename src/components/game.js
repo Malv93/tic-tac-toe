@@ -68,13 +68,13 @@ function Game(props) {
         <li key={move} className="history-button">
           <button
             onClick={() => {
-              //exit transition
+              //trigger board exit transition
               setShowBoard(false);
               // Wait for the exit transition to complete
               setTimeout(() => {
                 //change board #move
                 jumpTo(move);
-                //enter transition
+                //trigger board enter transition
                 setShowBoard(true);
               }, transitionTime.board);
             }}
